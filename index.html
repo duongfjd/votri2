@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiển thị nội dung</title>
+    <title>ĐM trang tuấn</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #floatingText {
+            position: absolute;
+            font-size: 100px; /* Cỡ chữ lớn hơn */
+            font-weight: bold;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>ĐM TRANG TUẤN</h1>
+    <div id="floatingText">ĐM TRANG TUẤN</div>
+
+    <script>
+        const floatingText = document.getElementById("floatingText");
+        let posX = Math.random() * window.innerWidth;
+        let posY = Math.random() * window.innerHeight;
+        let speedX = 3;
+        let speedY = 3;
+
+        function moveText() {
+            posX += speedX;
+            posY += speedY;
+
+            if (posX + floatingText.offsetWidth > window.innerWidth || posX < 0) {
+                speedX = -speedX;
+            }
+            if (posY + floatingText.offsetHeight > window.innerHeight || posY < 0) {
+                speedY = -speedY;
+            }
+
+            floatingText.style.left = posX + "px";
+            floatingText.style.top = posY + "px";
+
+            requestAnimationFrame(moveText);
+        }
+
+        floatingText.style.left = posX + "px";
+        floatingText.style.top = posY + "px";
+        moveText();
+    </script>
 </body>
 </html>
