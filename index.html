@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIÊN</title>
+    <title>Có cái đầu buồi</title>
     <style>
         body {
             margin: 0;
@@ -12,17 +12,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #000;
         }
         #floatingText {
             position: absolute;
-            font-size: 100px; /* Cỡ chữ lớn hơn */
+            font-size: 100px;
             font-weight: bold;
-            color: red;
+            animation: rainbow 7s steps(7, end) infinite; /* Discrete 7-color steps */
+        }
+        @keyframes rainbow {
+            0% { color: #ff0000; } /* Red */
+            14.29% { color: #ff7f00; } /* Orange */
+            28.57% { color: #ffff00; } /* Yellow */
+            42.86% { color: #00ff00; } /* Green */
+            57.14% { color: #0000ff; } /* Blue */
+            71.43% { color: #4b0082; } /* Indigo */
+            85.71% { color: #8b00ff; } /* Violet */
+            100% { color: #ff0000; } /* Back to Red */
         }
     </style>
 </head>
 <body>
-    <div id="floatingText">ĐM DƯƠNG KIÊN</div>
+    <div id="floatingText">CÓ ĐB BỐ TRẢ</div>
 
     <script>
         const floatingText = document.getElementById("floatingText");
